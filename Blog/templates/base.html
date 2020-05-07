@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> BlogPost</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home/"><span style="color: red;"><h3> BlogPost</h3></span></a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="/create/">Post</a>
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="Logout" tabindex="-1" aria-disabled="true">Logout</a>
+            {% else %}
+            <a class="nav-item nav-link" href="/login/">Login</a>
+            <a class="nav-item nav-link" href="/signup/">Signup</a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    
+    {% block body %}
+
+
+    {% endblock %}
+</body>
+</html>

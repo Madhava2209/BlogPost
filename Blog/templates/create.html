@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="card" style="width: 600px; padding: 20px; align-items: center; margin-left: 27%; margin-top: 30px;">
+<form action="/create/" method="post" enctype="multipart/form-data" class="form-group">
+    {% csrf_token %}
+    <label>Title </label>
+    <input type="text" name="title" class="form-control">
+    <label>Content</label>
+    <textarea name="content" class="form-control"></textarea>
+    <label>Author</label>
+    <input type="text" name="author" class="form-control">
+    <label>Cover Photo</label>
+    <input type="file" name="cover" class="form-control">
+    <br>
+    <button type="submit" class="btn btn-outline-success">Post</button>
+</form>
+</div>
+{% endblock %}
