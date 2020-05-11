@@ -53,7 +53,7 @@ def create_post(request):
     if request.method=="POST":
         title=request.POST["title"]
         content=request.POST["content"]
-        author=request.POST["author"]
+        author=request.user
         
         new_post=BlogPost.objects.create(title=title,content=content,author=author,cover=request.FILES["cover"])
         return redirect("/home/")
@@ -70,14 +70,11 @@ def edit_post(request,post_id):
     if request.method=="POST":
         title=request.POST["title"]
         content=request.POST["content"]
-        timestamp=request.POST["timestamp"]
-        author=request.POST["author"]
         
         post.title=title
         post.content=content
-        post.timestamp=timestamp
-        post.author=author
-        post.cover=request.POST["cover"]
+        if request.FILES:
+            post.cover=request.FILES["cover"]
         post.save()
         return redirect(f"/post/{post.id}/")
 
@@ -106,14 +103,20 @@ def comment(request,post_id):
 
 
 def like(request,post_id):
-    blog=BlogPost.objects.get(pk=post_id)
-    like=Like.objects.filter(reader=request.user,blog=blog)
-    if like :
-        return redirect(f"/post/{post_id}/")
-    blog.likes +=1
-    blog.save()
-    like=Like.objects.create(reader=request.user,blog=blog)
-    return redirect(f"/post/{blog.id}/")
+    context={}
+    user=request.user
+    if  user.is_authenticated:
+        blog=BlogPost.objects.get(pk=post_id)
+        like=Like.objects.filter(reader=request.user,blog=blog)
+        if like :
+            return redirect(f"/post/{post_id}/")
+        blog.likes +=1
+        blog.save()
+        like=Like.objects.create(reader=request.user,blog=blog)
+        return redirect(f"/post/{blog.id}/")
+    else:
+        context["error"]="Please login!!!"
+        return render(request,"login.html",context)
 
 
 def delete(request,post_id):

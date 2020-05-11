@@ -12,4 +12,7 @@ urlpatterns = [
     path('signup/',signup),
     path('login/',signin),
     path('logout/',signout),
+    path('delete/<int:post_id>/',delete),
+    path('like/<int:post_id>/',like),
+    path('edit/<int:post_id>/',edit_post),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

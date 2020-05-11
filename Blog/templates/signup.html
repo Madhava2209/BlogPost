@@ -6,9 +6,9 @@
     <form action="/signup/" method="post" class="form-group">
         {% csrf_token %}
         <p>User Name</p>
-        <input type="text" name="username"class="form-control">
+        <input type="text" name="username"class="form-control" required>
         <p>Email</p>
-        <input type="email" name="email" id="" class="form-control" >
+        <input type="email" name="email" id="" class="form-control"required>
         <p>Password</p>
         <input type="password" name="password" id="" class="form-control" >
         <br>

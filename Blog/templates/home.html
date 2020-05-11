@@ -10,10 +10,11 @@
 {% for i in all %}
 
 <div class="card" style="width: 20rem; margin-bottom: 20px;">
-    <img src="{{i.cover.url}}" class="card-img-top" alt="...">
+    <img src="{{i.cover.url}}" class="card-img-top" height="350px">
     <div class="card-body">
       <h5 class="card-title">{{i.title}}</h5>
-      <p class="card-text">Author: {{i.author}} | {{i.timestamp}}| Likes: {{i.likes}}</p>
+      <p class="card-text">Author: {{i.author}} | {{i.timestamp}}</p>
+      <label>Likes: {{i.likes}}</label>
       <a href="/post/{{i.id}}" class="btn btn-primary">Read</a>
     </div>
   </div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="card" style="width: 600px; padding: 20px; align-items: center; margin-left: 27%; margin-top: 30px;">
+<form action="/edit/{{post.id}}/" method="post" enctype="multipart/form-data" class="form-group">
+    {% csrf_token %}
+    <label>Title </label>
+    <input type="text" name="title" class="form-control" value="{{post.title}}" required>
+    <label>Content</label>
+    <textarea name="content" class="form-control" required style="height: 300px;">{{post.content}}</textarea>
+    <label>Cover Photo</label>
+    <input type="file" name="cover" class="form-control" placeholder="Upload a cover photo">
+    <br>
+    <button type="submit" class="btn btn-outline-success">Post</button>
+</form>
+</div>
+{% endblock %}
