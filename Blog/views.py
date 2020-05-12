@@ -44,8 +44,11 @@ def home(request):
     return render(request,"home.html",{"all":all_posts})
 
 def post_page(request,post_id):
+
     post = BlogPost.objects.get(pk=post_id)
     comment=Comment.objects.filter(blog=post)
+    print(request.user,post.author)
+
     return render(request,"post_page.html",{"post":post,"comment":comment})
 
 
@@ -61,23 +64,31 @@ def create_post(request):
 
 def delete(request,post_id):
     post=BlogPost.objects.get(pk=post_id)
-    post.delete()
-    return redirect("/home/")
+    user = request.user
+
+    if user.username == post.author:
+        post.delete()
+        return redirect("/home/")
+    else:
+        return redirect(f'/post/{post_id}/')
 
 def edit_post(request,post_id):
+    user = request.user
     post=BlogPost.objects.get(pk=post_id)
 
-    if request.method=="POST":
-        title=request.POST["title"]
-        content=request.POST["content"]
-        
-        post.title=title
-        post.content=content
-        if request.FILES:
-            post.cover=request.FILES["cover"]
-        post.save()
-        return redirect(f"/post/{post.id}/")
-
+    if user.username == post.author:
+        if request.method=="POST":
+            title=request.POST["title"]
+            content=request.POST["content"]
+            
+            post.title=title
+            post.content=content
+            if request.FILES:
+                post.cover=request.FILES["cover"]
+            post.save()
+            return redirect(f"/post/{post.id}/")
+    else:
+        return redirect(f'/post/{post_id}/')
     return render(request,"edit_post.html",{"post":post})
 
 def comment(request,post_id):
@@ -117,9 +128,3 @@ def like(request,post_id):
     else:
         context["error"]="Please login!!!"
         return render(request,"login.html",context)
-
-
-def delete(request,post_id):
-    post=BlogPost.objects.get(pk=post_id)
-    post.delete()
-    return redirect("/home/")

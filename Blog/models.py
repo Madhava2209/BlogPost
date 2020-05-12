@@ -12,6 +12,12 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
 
+    def delete(self, *args, **kwargs):
+        self.cover.delete()
+        super().delete(*args, **kwargs)
+
+
+
 class Comment(models.Model):
     reader=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     blog=models.ForeignKey(BlogPost,on_delete=models.CASCADE,null=True,blank=True)

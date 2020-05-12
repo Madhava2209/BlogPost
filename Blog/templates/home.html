@@ -6,7 +6,7 @@
 
 }
 </style>
-<div class="container" style="display: flex; justify-content: space-evenly;flex-wrap: wrap; padding-top: 20px;">
+<div class="container" style="display: flex; justify-content: space-evenly;flex-wrap: wrap; padding-top: 20px; background-image: url('')">
 {% for i in all %}
 
 <div class="card" style="width: 20rem; margin-bottom: 20px;">
@@ -16,6 +16,7 @@
       <p class="card-text">Author: {{i.author}} | {{i.timestamp}}</p>
       <label>Likes: {{i.likes}}</label>
       <a href="/post/{{i.id}}" class="btn btn-primary">Read</a>
+      
     </div>
   </div>
 {% endfor %}
