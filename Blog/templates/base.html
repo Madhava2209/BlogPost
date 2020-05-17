@@ -10,13 +10,13 @@
         <a class="navbar-brand" href="/home/"><span><h5 style="color: rgb(255, 145, 0);">BlogPost</h5></span></a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a href="/home" class="btn btn-warning" style="margin-right: 10px;">Home</a>
+            <a href="/home" class="btn btn-warning" style="margin-right: 10px;">Blogs</a>
             {% if user.is_authenticated %}
             <a class="btn btn-warning" href="/create/" style="margin-right:10px;">Post</a>
             <a class="btn btn-warning" href="/logout/" tabindex="-1" aria-disabled="true">Logout</a>
             {% else %}
-            <a class="btn btn-danger" href="/login/" style="margin-right: 10px;">Login</a>
-            <a class="btn btn-danger" href="/signup/">Signup</a>
+            <a class="btn btn-warning" href="/login/" style="margin-right: 10px;">Login</a>
+            <a class="btn btn-warning" href="/signup/">Signup</a>
             {% endif %}
           </div>
         </div>

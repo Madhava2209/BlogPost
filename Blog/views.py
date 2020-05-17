@@ -3,6 +3,9 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User
 from .models import *
 # Create your views here.
+def landing(request):
+    return render(request,"landing.html")
+
 def signup(request):
     if request.method=="POST":
         username=request.POST["username"]
@@ -128,3 +131,8 @@ def like(request,post_id):
     else:
         context["error"]="Please login!!!"
         return render(request,"login.html",context)
+
+def delete_comment(request,comment_id,post_id):
+    comment_instance=Comment.objects.get(pk=comment_id)
+    comment_instance.delete()
+    return redirect(f'/post/{post_id}/')
