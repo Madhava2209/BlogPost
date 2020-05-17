@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '188-fbwk!$p55cqo%vg0v-pn#1)7s*@f8k1d0#1mo!m$l&0w*1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["blog--posts.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -139,7 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
-GITHUB_HANDLE = "Madhava2209"
-ACCESS_TOKEN = "64be8fc061bf8f4af92d01a67f7463f5fbddcdd5"
+GITHUB_HANDLE = ""
+ACCESS_TOKEN = ""
 GITHUB_REPO_NAME = "BlogPost"
 MEDIA_BUCKET_NAME = "media"
