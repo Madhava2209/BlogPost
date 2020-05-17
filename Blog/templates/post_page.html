@@ -26,7 +26,8 @@
                 <input type="text" name="comment" style="width: 60rem; height:2.5rem;border-radius: 1px;" placeholder="Type something....." required>
                 <button type="submit" class="btn btn-outline-info">Comment</button>
         </form>
-        <br> 
+        <br>
+        {% if comment %} 
         <h5>Comments</h5>
         {% for i in comment %}
          <div class="card" style="margin-bottom:10px;padding: 5px;border-radius: 5px; ">
@@ -39,6 +40,9 @@
                 {% endif %}
             </div>
         {% endfor %}
+        {% else %}
+        <label> Be the first one to comment...</label>
+        {% endif %}
         
     </div>
 {% endblock %}
