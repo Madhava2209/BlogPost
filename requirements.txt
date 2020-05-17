@@ -5,3 +5,4 @@ gunicorn==20.0.4
 Jinja2==2.11.1
 whitenoise==5.0.1
 Pillow==5.4.1
+django-github-s3==0.25
