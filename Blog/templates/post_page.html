@@ -27,14 +27,18 @@
                 <button type="submit" class="btn btn-outline-info">Comment</button>
         </form>
         <br> 
+        <div class="container" style="margin-bottom:10px;padding: 5px;border-radius: 5px; ">
         {% for i in comment %}
-            <div class="card" style="margin-bottom:10px;padding: 5px;border-radius: 5px;">
+                
                 <label>{{i.comment}}</label>
+                <br>
                 <label>Commented by: {{i.reader}} | {{i.timestamp}}</label>
+                <hr>
                 {% if user == i.reader %}
                 
                 {% endif %}
-            </div>
+            
         {% endfor %}
+        </div>
     </div>
 {% endblock %}

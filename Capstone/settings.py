@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '188-fbwk!$p55cqo%vg0v-pn#1)7s*@f8k1d0#1mo!m$l&0w*1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["blog--posts.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Blog',
+    'github_storages',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,9 @@ DATABASES['default'].update(db_from_env)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
+GITHUB_HANDLE = "Madhava2209"
+ACCESS_TOKEN = "fd9bfd675f62535ca97498a1e12070827ffc871c"
+GITHUB_REPO_NAME = "Your New Github Public Repository Name"
+MEDIA_BUCKET_NAME = "media"
