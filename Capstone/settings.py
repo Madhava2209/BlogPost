@@ -138,8 +138,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
-#GITHUB_HANDLE = "Madhava2209"
-#ACCESS_TOKEN = "64be8fc061bf8f4af92d01a67f7463f5fbddcdd5"
-#GITHUB_REPO_NAME = "BlogPost"
-#MEDIA_BUCKET_NAME = "media"
+DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
+GITHUB_HANDLE = "Madhava2209"
+ACCESS_TOKEN = "64be8fc061bf8f4af92d01a67f7463f5fbddcdd5"
+GITHUB_REPO_NAME = "BlogPost"
+MEDIA_BUCKET_NAME = "media"
