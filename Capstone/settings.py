@@ -141,5 +141,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
 GITHUB_HANDLE = "Madhava2209"
 ACCESS_TOKEN = "fd9bfd675f62535ca97498a1e12070827ffc871c"
-GITHUB_REPO_NAME = "Your New Github Public Repository Name"
+GITHUB_REPO_NAME = "BlogPost"
 MEDIA_BUCKET_NAME = "media"
