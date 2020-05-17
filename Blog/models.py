@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 class BlogPost(models.Model):
-    title= models.CharField(max_length=100)
+    title= models.CharField(max_length=1000)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now=True)
     author = models.CharField(max_length=100)
