@@ -16,7 +16,7 @@ Getting started with the project:
         
 Website:
 
-  This webapp is hosted heroku and can be accessed using the link given below:
+  This webapp is hosted on heroku and can be accessed using the link given below:
   
       https://blog--posts.herokuapp.com
       
